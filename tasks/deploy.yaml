@@ -127,7 +127,8 @@ spec:
           value: $(params.COMPONENTS_W_RESOURCES)
         # String interpolation is easier when injecting the SNAPSHOT to an env var.
         - name: SNAPSHOT
-          value: $(params.SNAPSHOT)
+          #  value: $(params.SNAPSHOT)
+          value: latest
         - name: SNAPSHOT_PATH
           value: /workspace/snapshot.json
         - name: BONFIRE_BOT
