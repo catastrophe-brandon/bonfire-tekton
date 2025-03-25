@@ -77,7 +77,7 @@ spec:
     - name: reduce
       env:
         - name: SNAPSHOT
-          value: $(params.SNAPSHOT)
+          value: latest
         - name: SINGLE_COMPONENT
           value: $(params.SINGLE_COMPONENT)
         - name: CUSTOM_RESOURCE
