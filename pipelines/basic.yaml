@@ -194,11 +194,20 @@ spec:
           value: "$(params.BONFIRE_IMAGE)"
         - name: SNAPSHOT
           value: "{
-                     \"components\": [
-                       {
-                         \"containerImage\": \"quay.io/cloudservices/crc-pdf-generator:latest\"
-                       }
-                     ]
+  \"application\": \"platex-internal-test\",
+  \"components\": [
+    {
+      \"name\": \"platex-internal-test\",
+      \"containerImage\": \"quay.io/cloudservices/crc-pdf-generator:latest\",
+      \"source\": {
+        \"git\": {
+          \"url\": \"https://gitlab.cee.redhat.com/btweed/platex-internal-test\",
+          \"revision\": \"a16b5983eb09390ed87122b8521307f240aa6cd5\"
+        }
+      }
+    }
+  ],
+  \"artifacts\": {}
                    }"
         - name: SINGLE_COMPONENT
           value: "$(params.SINGLE_COMPONENT)"
