@@ -142,17 +142,18 @@ spec:
       script: |
         #!/bin/bash
         set -ex
-
+	echo "SNAPSHOT is ${SNAPSHOT}"
         echo "Connecting to the ephemeral namespace cluster"
         login.sh
 
         SNAPSHOT="$(cat "${SNAPSHOT_PATH}" 2> /dev/null || echo "${SNAPSHOT}")"
 
         echo "deploying to ephemeral"
-        if [ -z "${EXTRA_DEPLOY_ARGS}" ]; then
-          EXTRA_DEPLOY_ARGS="$(parse-snapshot.py)"
-        else
-          EXTRA_DEPLOY_ARGS+=" $(parse-snapshot.py) "
-        fi
-        export EXTRA_DEPLOY_ARGS
+        # Skip EXTRA_DEPLOY_ARGS for the sake of experimentation
+        #if [ -z "${EXTRA_DEPLOY_ARGS}" ]; then
+        #  EXTRA_DEPLOY_ARGS="$(parse-snapshot.py)"
+        #else
+        #  EXTRA_DEPLOY_ARGS+=" $(parse-snapshot.py) "
+        #fi
+        #export EXTRA_DEPLOY_ARGS
         deploy.sh "$(params.NS)" "$(params.NS_REQUESTER)" 
