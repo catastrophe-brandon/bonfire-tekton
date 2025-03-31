@@ -199,7 +199,7 @@ spec:
               "components": [
                 {
                   "name": "platex-internal-test",
-                  "containerImage": "quay.io/cloudservices/crc-pdf-generator@sha256:26524a257699",
+                  "containerImage": "quay.io/cloudservices/crc-pdf-generator@sha256:26524a257699ef16084aca2ca9fecb9bfe757b96f4113eaf074d3362ae906108",
                   "source": {
                     "git": {
                       "url": "https://gitlab.cee.redhat.com/btweed/platex-internal-test",
