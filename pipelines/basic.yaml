@@ -203,7 +203,7 @@ spec:
                   "source": {
                     "git": {
                       "url": "https://gitlab.cee.redhat.com/btweed/platex-internal-test",
-                      "revision": "a16b5983eb09390ed87122b8521307f240aa6cd5"
+                      "revision": "26524a257699ef16084aca2ca9fecb9bfe757b96f4113eaf074d3362ae906108"
                     }
                   }
                 }
