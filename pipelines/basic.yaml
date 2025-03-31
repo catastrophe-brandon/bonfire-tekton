@@ -193,7 +193,13 @@ spec:
         - name: BONFIRE_IMAGE
           value: "$(params.BONFIRE_IMAGE)"
         - name: SNAPSHOT
-          value: "$(params.SNAPSHOT)"
+          value: "{
+                     \"components\": [
+                       {
+                         \"containerImage\": \"quay.io/cloudservices/crc-pdf-generator:latest\"
+                       }
+                     ]
+                   }"
         - name: SINGLE_COMPONENT
           value: "$(params.SINGLE_COMPONENT)"
         - name: SINGLE_COMPONENT_CUSTOM_RESOURCE
@@ -212,8 +218,8 @@ spec:
           value: "$(params.COMPONENTS)"
         - name: COMPONENTS_W_RESOURCES
           value: "$(params.COMPONENTS_W_RESOURCES)"
-        - name: EXTRA_DEPLOY_ARGS
-          value: "$(params.EXTRA_DEPLOY_ARGS)"
+        #- name: EXTRA_DEPLOY_ARGS
+        #  value: "$(params.EXTRA_DEPLOY_ARGS)"
         - name: DEPLOY_FRONTENDS
           value: "$(params.DEPLOY_FRONTENDS)"
         - name: DEPLOY_TIMEOUT
