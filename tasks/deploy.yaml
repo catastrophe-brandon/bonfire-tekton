@@ -125,10 +125,14 @@ spec:
           value: $(params.COMPONENTS)
         - name: COMPONENTS_W_RESOURCES
           value: $(params.COMPONENTS_W_RESOURCES)
-        # String interpolation is easier when injecting the SNAPSHOT to an env var.
         - name: SNAPSHOT
-          #  value: $(params.SNAPSHOT)
-          value: latest
+          value: "{
+            \"components\": [
+              {
+                \"containerImage\": \"quay.io/cloudservices/crc-pdf-generator:latest\"
+              }
+            ]
+          }"
         - name: SNAPSHOT_PATH
           value: /workspace/snapshot.json
         - name: BONFIRE_BOT
@@ -142,13 +146,14 @@ spec:
       script: |
         #!/bin/bash
         set -ex
-	echo "SNAPSHOT is ${SNAPSHOT}"
+        echo "SNAPSHOT is ${SNAPSHOT}"
         echo "Connecting to the ephemeral namespace cluster"
         login.sh
 
         SNAPSHOT="$(cat "${SNAPSHOT_PATH}" 2> /dev/null || echo "${SNAPSHOT}")"
 
         echo "deploying to ephemeral"
+        echo "NOT setting EXTRA_DEPLOY_ARGS"
         # Skip EXTRA_DEPLOY_ARGS for the sake of experimentation
         #if [ -z "${EXTRA_DEPLOY_ARGS}" ]; then
         #  EXTRA_DEPLOY_ARGS="$(parse-snapshot.py)"
