@@ -202,8 +202,8 @@ spec:
                   "containerImage": "quay.io/cloudservices/crc-pdf-generator@sha256:26524a257699ef16084aca2ca9fecb9bfe757b96f4113eaf074d3362ae906108",
                   "source": {
                     "git": {
-                      "url": "https://gitlab.cee.redhat.com/btweed/platex-internal-test",
-                      "revision": "latest"
+                      "url": "https://github.com/RedHatInsights/pdf-generator",
+                      "revision": "main"
                     }
                   }
                 }
